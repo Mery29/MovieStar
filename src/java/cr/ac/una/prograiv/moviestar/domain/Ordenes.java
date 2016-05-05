@@ -17,6 +17,10 @@ public class Ordenes implements java.io.Serializable{
     Date fecha_orden;
     int fk_idUsuario;
 
+    public Ordenes() {
+    }
+   
+
     public Ordenes(int pk_idOrden, String estado, Date fecha_orden, int fk_idUsuario) {
         this.pk_idOrden = pk_idOrden;
         this.estado = estado;

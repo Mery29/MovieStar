@@ -25,6 +25,11 @@ public class Usuarios implements java.io.Serializable{
     int telCel;
     String tipoUsuario;
 
+    public Usuarios() {
+        
+    }
+    
+
     public Usuarios(int pk_idUsuario, String usuario, String contraseña, String nombre, String apellidos, String correo, Date fechaNac, String direccion, int telCasa, int telCel, String tipoUsuario) {
         this.pk_idUsuario = pk_idUsuario;
         this.usuario = usuario;

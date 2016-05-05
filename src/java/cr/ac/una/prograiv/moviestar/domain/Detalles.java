@@ -19,6 +19,9 @@ public class Detalles implements java.io.Serializable{
     Date fechaLimite;
     float precio;
 
+    public Detalles() {
+    }
+
     public Detalles(int fk_idOrdenes, int fk_idCatalogos, String tipo, Date fechaLimite, float precio) {
         this.fk_idOrdenes = fk_idOrdenes;
         this.fk_idCatalogos = fk_idCatalogos;

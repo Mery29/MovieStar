@@ -12,9 +12,9 @@ import java.util.List;
  *
  * @author Byron
  */
-public class UsuarioBL extends BaseBL implements IBaseBL<Usuarios, Integer>{
+public class UsuariosBL extends BaseBL implements IBaseBL<Usuarios, Integer>{
 
-    public UsuarioBL() {
+    public UsuariosBL() {
         super();
     }
 

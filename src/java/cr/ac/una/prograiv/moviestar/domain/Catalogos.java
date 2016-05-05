@@ -20,6 +20,10 @@ public class Catalogos implements java.io.Serializable{
     float precio_alquiler;
     float precio_compra;
 
+    public Catalogos() {
+    }
+       
+
     public Catalogos(int pk_id, String nombre, String director, String actor_princ, int fk_idCateg, int cantidad, String tipo, float precio_alquiler, float precio_compra) {
         this.pk_idCata = pk_id;
         this.nombre = nombre;

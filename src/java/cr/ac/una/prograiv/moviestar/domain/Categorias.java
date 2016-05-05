@@ -15,6 +15,9 @@ public class Categorias implements java.io.Serializable{
     String nombre;
     String observaciones;
 
+    public Categorias() {
+    }
+
     public Categorias(int pk_id, String nombre, String observaciones) {
         this.pk_idCateg = pk_id;
         this.nombre = nombre;
