@@ -73,29 +73,36 @@ public class UsuariosServlet {
                     //Se llena el objeto con los datos enviados por AJAX por el metodo post
                     u.setPk_idUsuario(Integer.parseInt(request.getParameter("cedula")));
                     u.setNombre(request.getParameter("nombre"));
-                    u.setApellidos(request.getParameter("apellido1"));
+                    u.setApellidos(request.getParameter("apellidos"));
                    
                     String fechatxt = request.getParameter("fechaNacimiento");
                     DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                     Date date = format.parse(fechatxt);
-
+                    
                     u.setFechaNac(date);
-                    //u.setSexo(Integer.parseInt(request.getParameter("sexo")));
-                    u.setObservaciones(request.getParameter("observaciones"));
+                    u.setContraseña(fechatxt);
+                    u.setCorreo(request.getParameter("correo"));
+                    u.setTelCasa(Integer.parseInt(request.getParameter("telCasa")));
+                    u.setTelCel(Integer.parseInt(request.getParameter("telCel")));
+                    u.setTipoUsuario(request.getParameter("tipoUsuario"));
+                    u.setUsuario(request.getParameter("usuario"));
+                    u.setDireccion(request.getParameter("direccion"));
+                    
+                    
 
                     boolean validacion= false;
-                    if(accion.equals("agregarPersona")){ //es insertar personas
-                        List<Personas> lista = pBL.findAll(Personas.class.getName());
-                        for(Personas personas : lista){
-                            if(p.getPkCedula() == personas.getPkCedula()){
-                                out.print("E~Usted ha ingresado una identificación que ya existe");
+                    if(accion.equals("agregarPersona")){ //es insertar usuarios
+                        List<Usuarios> lista = uBL.findAll(Usuarios.class.getName());
+                        for(Usuarios usuarios : lista){
+                            if(u.getUsuario() == usuarios.getUsuario()){
+                                out.print("E~Usted ha ingresado un nombre de usuario que ya existe");
                                 validacion= true;
                             }
                         }
                         if(!validacion){
                         //Se guarda el objeto
-                            pBL.save(p);
-                            out.print("C~La persona fue ingresada correctamente");
+                            uBL.save(u);
+                            out.print("C~El usuario fue ingresado correctamente");
                         }
 
                         //Se imprime la respuesta con el response
@@ -103,10 +110,10 @@ public class UsuariosServlet {
                         
                     }else{//es modificar persona
                         //Se guarda el objeto
-                        pBL.merge(p);
+                        uBL.merge(u);
 
                         //Se imprime la respuesta con el response
-                        out.print("C~La persona fue modificada correctamente");
+                        out.print("C~El usuario fue modificada correctamente");
                     }
                     
                     break;
