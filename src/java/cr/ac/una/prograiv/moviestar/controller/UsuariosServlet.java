@@ -59,40 +59,29 @@ public class UsuariosServlet {
                     out.print("El usuario fue eliminado correctamente");
                     break;
                     
-                case "consultarPersonasByID":
+                case "consultarUsuariosByID":
                     //se consulta la persona por ID
-                    u = uBL.findById(Integer.parseInt(request.getParameter("idPersona")));
+                    u = uBL.findById(Integer.parseInt(request.getParameter("idUsuario")));
                     
                     //se pasa la informacion del objeto a formato JSON
-                    json = new Gson().toJson(p);
+                    json = new Gson().toJson(u);
                     out.print(json);
                     break;
-                    
-                case "consultarPorNombre":
-                    List<Personas> lP;
-                    lP = pBL.findByName(request.getParameter("nombre"));
-                    json = new Gson().toJson(lP);
-                    out.print(json);
-                   
-                    break;
-                    
-                    
-                case "agregarPersona": case "modificarPersona":
+               
+                case "agregarUsuario": case "modificarUsuario":
 
                     //Se llena el objeto con los datos enviados por AJAX por el metodo post
-                    p.setPkCedula(Integer.parseInt(request.getParameter("cedula")));
-                    p.setNombre(request.getParameter("nombre"));
-                    p.setApellido1(request.getParameter("apellido1"));
-                    p.setApellido2(request.getParameter("apellido2"));
-
-                    //Guardar Correctamente en la base de datos
+                    u.setPk_idUsuario(Integer.parseInt(request.getParameter("cedula")));
+                    u.setNombre(request.getParameter("nombre"));
+                    u.setApellidos(request.getParameter("apellido1"));
+                   
                     String fechatxt = request.getParameter("fechaNacimiento");
                     DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                     Date date = format.parse(fechatxt);
 
-                    p.setFecNacimiento(date);
-                    p.setSexo(Integer.parseInt(request.getParameter("sexo")));
-                    p.setObservaciones(request.getParameter("observaciones"));
+                    u.setFechaNac(date);
+                    //u.setSexo(Integer.parseInt(request.getParameter("sexo")));
+                    u.setObservaciones(request.getParameter("observaciones"));
 
                     boolean validacion= false;
                     if(accion.equals("agregarPersona")){ //es insertar personas

@@ -10,5 +10,5 @@ package cr.ac.una.prograiv.moviestar.controller;
  * @author Mery Zúñiga
  */
 public class Prueba {
-    
+    String id;
 }
