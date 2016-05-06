@@ -6,6 +6,7 @@
 package cr.ac.una.prograiv.moviestar.bl;
 
 import cr.ac.una.prograiv.moviestar.domain.Ordenes;
+import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import java.util.List;
 
 /**
@@ -20,27 +21,27 @@ public class OrdenesBL extends BaseBL implements IBaseBL<Ordenes, Integer>{
 
     @Override
     public void save(Ordenes o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).save(o);
     }
 
     @Override
     public Ordenes merge(Ordenes o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Ordenes) this.getDao(o.getClass().getName()).merge(o);
     }
 
     @Override
     public void delete(Ordenes o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).delete(o);
     }
 
     @Override
     public Ordenes findById(Integer o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Ordenes) this.getDao(o.getClass().getName()).findById(o);
     }
 
     @Override
     public List<Ordenes> findAll(String className) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getDao(className).findAll();
     }
     
 }

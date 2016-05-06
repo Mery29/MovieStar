@@ -21,27 +21,27 @@ public class CatalogosBL extends BaseBL implements IBaseBL<Catalogos, Integer>{
 
     @Override
     public void save(Catalogos o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).save(o);
     }
 
     @Override
     public Catalogos merge(Catalogos o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Catalogos) this.getDao(o.getClass().getName()).merge(o);
     }
 
     @Override
     public void delete(Catalogos o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).delete(o);
     }
 
     @Override
     public Catalogos findById(Integer o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Catalogos) this.getDao(o.getClass().getName()).findById(o);
     }
 
     @Override
     public List<Catalogos> findAll(String className) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getDao(className).findAll();
     }
     
 }

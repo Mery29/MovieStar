@@ -5,6 +5,7 @@
  */
 package cr.ac.una.prograiv.moviestar.bl;
 
+import cr.ac.una.prograiv.moviestar.domain.Ordenes;
 import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import java.util.List;
 
@@ -20,27 +21,27 @@ public class UsuariosBL extends BaseBL implements IBaseBL<Usuarios, Integer>{
 
     @Override
     public void save(Usuarios o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).save(o);
     }
 
     @Override
     public Usuarios merge(Usuarios o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Usuarios) this.getDao(o.getClass().getName()).merge(o);
     }
 
     @Override
     public void delete(Usuarios o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getDao(o.getClass().getName()).delete(o);
     }
 
     @Override
     public Usuarios findById(Integer o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Usuarios) this.getDao(o.getClass().getName()).findById(o);
     }
 
     @Override
     public List<Usuarios> findAll(String className) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getDao(className).findAll();
     }
     
 }
