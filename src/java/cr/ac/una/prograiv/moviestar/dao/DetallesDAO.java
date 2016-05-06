@@ -6,10 +6,10 @@
 package cr.ac.una.prograiv.moviestar.dao;
 
 import cr.ac.una.prograiv.moviestar.domain.Detalles;
-import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import cr.ac.una.prograiv.moviestar.utils.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 /**
  *
@@ -61,7 +61,7 @@ public class DetallesDAO extends HibernateUtil implements IBaseDAO<Detalles, Int
     }
 
     @Override
-    public Detalles findById(Integer o) {
+    public Detalles findByOther(Detalles o) {
         Detalles detalles = null;
 
         try {
@@ -87,16 +87,17 @@ public class DetallesDAO extends HibernateUtil implements IBaseDAO<Detalles, Int
     }
 
     @Override
-    public List<Detalles> findByOther(String o) {
-        List<Detalles> listaDetalles;
-        try {
+    public List<Detalles> findAllByOther(Integer o) {
+        List<Detalles> lista= null;
+       try {
             iniciaOperacion();
-            listaDetalles = getSesion().createQuery("from Detalles").list();
+            Query query = getSesion().createQuery("from Detalles where = '"+ o +"'");
+            lista= query.list();
         } finally {
             getSesion().close();
         }
-
-        return listaDetalles;
+       
+        return lista;
     }
-    
+
 }

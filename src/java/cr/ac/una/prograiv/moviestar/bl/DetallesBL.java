@@ -35,8 +35,8 @@ public class DetallesBL extends BaseBL implements IBaseBL<Detalles, Integer>{
     }
 
     @Override
-    public Detalles findById(Integer o) {
-        return (Detalles) this.getDao(o.getClass().getName()).findById(o);
+    public Detalles findByOther(Detalles o) {
+        return (Detalles) this.getDao(o.getClass().getName()).findByOther(o);
     }
 
     @Override

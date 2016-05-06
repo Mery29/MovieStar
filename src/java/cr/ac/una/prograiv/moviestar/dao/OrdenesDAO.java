@@ -6,10 +6,10 @@
 package cr.ac.una.prograiv.moviestar.dao;
 
 import cr.ac.una.prograiv.moviestar.domain.Ordenes;
-import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import cr.ac.una.prograiv.moviestar.utils.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 /**
  *
@@ -60,18 +60,6 @@ public class OrdenesDAO extends HibernateUtil implements IBaseDAO<Ordenes, Integ
         }
     }
 
-    @Override
-    public Ordenes findById(Integer o) {
-        Ordenes ordenes = null;
-
-        try {
-            iniciaOperacion();
-            ordenes = (Ordenes) getSesion().get(Ordenes.class, o);
-        } finally {
-            getSesion().close();
-        }
-        return ordenes;
-    }
 
     @Override
     public List<Ordenes> findAll() {
@@ -87,15 +75,29 @@ public class OrdenesDAO extends HibernateUtil implements IBaseDAO<Ordenes, Integ
     }
 
     @Override
-    public List<Ordenes> findByOther(String o) {
-        List<Ordenes> listaOrdenes;
+    public Ordenes findByOther(Ordenes o) {
+       Ordenes ordenes = null;
+
         try {
             iniciaOperacion();
-            listaOrdenes = getSesion().createQuery("from Ordenes").list();
+            ordenes = (Ordenes) getSesion().get(Ordenes.class, o);
         } finally {
             getSesion().close();
         }
+        return ordenes;
+    }
 
-        return listaOrdenes;
+    @Override
+    public List<Ordenes> findAllByOther(Integer o) {  //Este metodo busca todas las ordenes del nombre de usuario que se le envía
+        List<Ordenes> lista= null;
+       try {
+            iniciaOperacion();
+            Query query = getSesion().createQuery("from Ordenes where = '"+ o +"'");
+            lista= query.list();
+        } finally {
+            getSesion().close();
+        }
+       
+        return lista;
     }
 }

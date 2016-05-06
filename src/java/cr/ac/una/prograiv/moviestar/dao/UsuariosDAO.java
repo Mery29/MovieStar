@@ -9,6 +9,7 @@ import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import cr.ac.una.prograiv.moviestar.utils.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 /**
  *
@@ -60,16 +61,16 @@ public class UsuariosDAO extends HibernateUtil implements IBaseDAO<Usuarios, Int
     }
 
     @Override
-    public Usuarios findById(Integer o) {
-        Usuarios usuarios = null;
+    public Usuarios findByOther(Usuarios u) {
+      Usuarios usuario = null;
 
         try {
             iniciaOperacion();
-            usuarios = (Usuarios) getSesion().get(Usuarios.class, o);
+            usuario = (Usuarios) getSesion().get(Usuarios.class, u);
         } finally {
             getSesion().close();
         }
-        return usuarios;
+        return usuario;
     }
 
     @Override
@@ -86,14 +87,17 @@ public class UsuariosDAO extends HibernateUtil implements IBaseDAO<Usuarios, Int
     }
 
     @Override
-    public List<Usuarios> findByOther(String o) {
-        List<Usuarios> listaUsuarios;
+    public List<Usuarios> findAllByOther(Integer o) {
+        List<Usuarios> lista= null;
         try {
             iniciaOperacion();
-            listaUsuarios = getSesion().createQuery("from Usuarios").list();
+            Query query = getSesion().createQuery("from Usuarios where = '"+ o +"'");
+            lista= query.list();
         } finally {
             getSesion().close();
         }
-        return listaUsuarios;
+       
+        return lista;
     }
+    
 }

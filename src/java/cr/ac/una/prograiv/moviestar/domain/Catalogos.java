@@ -36,7 +36,7 @@ public class Catalogos implements java.io.Serializable{
         this.precio_compra = precio_compra;
     }
 
-    public void setPk_id(int pk_id) {
+    public void setPk_idCata(int pk_id) {
         this.pk_idCata = pk_id;
     }
 

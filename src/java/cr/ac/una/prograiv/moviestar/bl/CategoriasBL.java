@@ -6,6 +6,7 @@
 package cr.ac.una.prograiv.moviestar.bl;
 
 import cr.ac.una.prograiv.moviestar.domain.Catalogos;
+import cr.ac.una.prograiv.moviestar.domain.Categorias;
 import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import java.util.List;
 
@@ -13,34 +14,34 @@ import java.util.List;
  *
  * @author Byron
  */
-public class CategoriasBL extends BaseBL implements IBaseBL<Usuarios, Integer>{
+public class CategoriasBL extends BaseBL implements IBaseBL<Categorias, Integer>{
 
     public CategoriasBL() {
         super();
     }
 
     @Override
-    public void save(Usuarios o) {
+    public void save(Categorias o) {
         this.getDao(o.getClass().getName()).save(o);
     }
 
     @Override
-    public Usuarios merge(Usuarios o) {
-        return (Usuarios) this.getDao(o.getClass().getName()).merge(o);
+    public Categorias merge(Categorias o) {
+        return (Categorias) this.getDao(o.getClass().getName()).merge(o);
     }
 
     @Override
-    public void delete(Usuarios o) {
+    public void delete(Categorias o) {
         this.getDao(o.getClass().getName()).delete(o);
     }
 
     @Override
-    public Usuarios findById(Integer o) {
-        return (Usuarios) this.getDao(o.getClass().getName()).findById(o);
+    public Categorias findByOther(Categorias o) {
+        return (Categorias) this.getDao(o.getClass().getName()).findByOther(o);
     }
 
     @Override
-    public List<Usuarios> findAll(String className) {
+    public List<Categorias> findAll(String className) {
         return this.getDao(className).findAll();
     }
     

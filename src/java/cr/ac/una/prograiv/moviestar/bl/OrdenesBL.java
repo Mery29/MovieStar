@@ -35,8 +35,8 @@ public class OrdenesBL extends BaseBL implements IBaseBL<Ordenes, Integer>{
     }
 
     @Override
-    public Ordenes findById(Integer o) {
-        return (Ordenes) this.getDao(o.getClass().getName()).findById(o);
+    public Ordenes findByOther(Ordenes o) {
+        return (Ordenes) this.getDao(o.getClass().getName()).findByOther(o);
     }
 
     @Override

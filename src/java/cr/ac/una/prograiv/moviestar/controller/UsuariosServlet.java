@@ -18,12 +18,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import cr.ac.una.prograiv.moviestar.bl.UsuariosBL;
+import javax.servlet.http.HttpServlet;
 
 /**
  *
  * @author Mery Zúñiga
  */
-public class UsuariosServlet {
+public class UsuariosServlet extends HttpServlet {
  
      protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -59,9 +60,12 @@ public class UsuariosServlet {
                     out.print("El usuario fue eliminado correctamente");
                     break;
                     
-                case "consultarUsuariosByID":
+                case "consultarUsuariosPorCuenta":   //Se guarda un usuario y una contraseña en una persona, y se busca si la persona existe
                     //se consulta la persona por ID
-                    u = uBL.findById(Integer.parseInt(request.getParameter("idUsuario")));
+                    Usuarios consultado= null;
+                    consultado.setUsuario(request.getParameter("usuario"));
+                    consultado.setContraseña(request.getParameter("contraseña"));
+                    u = uBL.findByOther(consultado);
                     
                     //se pasa la informacion del objeto a formato JSON
                     json = new Gson().toJson(u);
@@ -80,7 +84,7 @@ public class UsuariosServlet {
                     Date date = format.parse(fechatxt);
                     
                     u.setFechaNac(date);
-                    u.setContraseña(fechatxt);
+                    u.setContraseña(request.getParameter("contraseña"));
                     u.setCorreo(request.getParameter("correo"));
                     u.setTelCasa(Integer.parseInt(request.getParameter("telCasa")));
                     u.setTelCel(Integer.parseInt(request.getParameter("telCel")));
@@ -113,13 +117,13 @@ public class UsuariosServlet {
                         uBL.merge(u);
 
                         //Se imprime la respuesta con el response
-                        out.print("C~El usuario fue modificada correctamente");
+                        out.print("C~El usuario fue modificado correctamente");
                     }
                     
                     break;
                     
                 default:
-                    out.print("E~No se indico la acción que se desea realizare");
+                    out.print("E~No se indico la acción que se desea realizar");
                     break;
             }
 
@@ -129,4 +133,45 @@ public class UsuariosServlet {
             out.print("E~" + e.getMessage());
         }
     }
+     
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+ 
+     
 }
