@@ -6,7 +6,6 @@
 package cr.ac.una.prograiv.moviestar.bl;
 
 import cr.ac.una.prograiv.moviestar.domain.Catalogos;
-import cr.ac.una.prograiv.moviestar.domain.Usuarios;
 import java.util.List;
 
 /**
@@ -40,8 +39,12 @@ public class CatalogosBL extends BaseBL implements IBaseBL<Catalogos, Integer>{
     }
 
     @Override
-    public List<Catalogos> findAll(String className) {
-        return this.getDao(className).findAll();
+    public List<Catalogos> findAllByOther(String className) {
+        return this.getDao(Catalogos.class.getName()).findAllByOther(className);
+    }
+    
+    public List<Catalogos> findAll(String o) {
+        return this.getDao(o).findAll();
     }
     
 }

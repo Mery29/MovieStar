@@ -90,7 +90,7 @@ public class CatalogosDAO extends HibernateUtil implements IBaseDAO<Catalogos, I
     }
 
     @Override
-    public List<Catalogos> findAllByOther(Integer o) {
+    public List<Catalogos> findAllByOther(String o) {
          List<Catalogos> lista= null;
        try {
             iniciaOperacion();

@@ -60,15 +60,16 @@ public class OrdenesServlet extends HttpServlet {
                     break;
                     
                 case "consultarOrdenesPorPersona":   //Se le envía el nombre de usuario para ver cuantas ordenes tiene
-                    //se consulta la persona por ID    //pero en este caso solo devuelve una, y necesito que devuelva la lista
-                    Ordenes orden= null;
-                    orden.setFk_idUsuario(Integer.parseInt(request.getParameter("usuario")));
-                    o = oBL.findByOther(orden);
                     
                     //se pasa la informacion del objeto a formato JSON
-                    json = new Gson().toJson(o);
-                    out.print(json);
+                    json = new Gson().toJson(oBL.findAllByOther("usuario"));
+                    out.print(json); 
                     break;
+                    
+                case "consultarOrdenesPorEstado":   //Se envia un tipo de estado para buscar todas ls ordenes con ese estado
+                    json = new Gson().toJson(oBL.findAllByOther("estado"));
+                    out.print(json);
+                    break; 
                
                 case "agregarOrden": case "modificarOrden":
 

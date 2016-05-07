@@ -87,7 +87,7 @@ public class UsuariosDAO extends HibernateUtil implements IBaseDAO<Usuarios, Int
     }
 
     @Override
-    public List<Usuarios> findAllByOther(Integer o) {
+    public List<Usuarios> findAllByOther(String o) {   //Este método no necesita ser implementado aquí
         List<Usuarios> lista= null;
         try {
             iniciaOperacion();
@@ -99,5 +99,7 @@ public class UsuariosDAO extends HibernateUtil implements IBaseDAO<Usuarios, Int
        
         return lista;
     }
+
+    
     
 }

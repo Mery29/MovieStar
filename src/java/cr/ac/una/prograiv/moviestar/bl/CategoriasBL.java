@@ -41,8 +41,12 @@ public class CategoriasBL extends BaseBL implements IBaseBL<Categorias, Integer>
     }
 
     @Override
-    public List<Categorias> findAll(String className) {
-        return this.getDao(className).findAll();
+    public List<Categorias> findAllByOther(String o) {
+        return this.getDao(Categorias.class.getName()).findAllByOther(o);
+    }
+    
+    public List<Categorias> findAll(String o) {
+        return this.getDao(o).findAll();
     }
     
 }

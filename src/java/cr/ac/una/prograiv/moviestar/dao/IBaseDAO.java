@@ -14,9 +14,9 @@ import java.util.List;
 public interface IBaseDAO <T,K> {
     public abstract void save (T o);
     public abstract T merge (T o);
-    public abstract void delete (T o);
-    public abstract T findByOther (T o);
-    public abstract List<T> findAllByOther(K o);
-    public abstract  List<T> findAll();
+    public abstract void delete (T o);    
+    public abstract T findByOther (T o);  //Le mando un objeto para que lo compare con la lista de objetos, y me devuelve ese objeto
+    public abstract List<T> findAllByOther(String o);  //Le mando un atributo y me devuelve la lista que tiene de objetos que cuentan con ese atributo
+    public abstract  List<T> findAll();   //Me devuelve todos los objetos de una clase.
     
 }

@@ -77,7 +77,7 @@ public class OrdenesDAO extends HibernateUtil implements IBaseDAO<Ordenes, Integ
     @Override
     public Ordenes findByOther(Ordenes o) {
        Ordenes ordenes = null;
-
+       
         try {
             iniciaOperacion();
             ordenes = (Ordenes) getSesion().get(Ordenes.class, o);
@@ -87,12 +87,13 @@ public class OrdenesDAO extends HibernateUtil implements IBaseDAO<Ordenes, Integ
         return ordenes;
     }
 
+    //Otra opción sería implementar dos metodos uno que busque por usuario y el otro por estado
     @Override
-    public List<Ordenes> findAllByOther(Integer o) {  //Este metodo busca todas las ordenes del nombre de usuario que se le envía
-        List<Ordenes> lista= null;
-       try {
-            iniciaOperacion();
-            Query query = getSesion().createQuery("from Ordenes where = '"+ o +"'");
+    public List<Ordenes> findAllByOther(String variable) {  //A este metodo le llega el nombre de usuario o se le envia el estado
+        List<Ordenes> lista= null;                          //para que este método devuelva la lista de ordenes..
+        try {
+            iniciaOperacion();   //Hay que probar si funciona
+            Query query = getSesion().createQuery("from Ordenes where o_usuario= '"+ variable +"'" +"or o_estado= '" +variable +"'");
             lista= query.list();
         } finally {
             getSesion().close();

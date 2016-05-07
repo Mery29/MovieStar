@@ -52,26 +52,19 @@ public class DetallesServlet extends HttpServlet {
                     json = new Gson().toJson(dBL.findAll(Ordenes.class.getName()));
                     out.print(json);
                     break;
-//                case "eliminarOrden":
-//                    d.(Integer.parseInt(request.getParameter("idOrden")));
-//                     //Se elimina el objeto
-//                    oBL.delete(o);
-
-                    //Se imprime la respuesta con el response
-                    //out.print("La orden fue eliminada correctamente");
-                    //break;
+                case "eliminarOrden":
+                    d.setFk_idOrdenes(Integer.parseInt(request.getParameter("idOrden")));  //idCategoria viene siendo como un numero
+                    dBL.delete(d);
+                    break;
                     
-                case "consultarOrdenesPor":    //Se le envía el nombre de usuario para ver cuantas ordenes tiene
-                    //se consulta la persona por ID    //pero en este caso solo devuelve una, y necesito que devuelva la lista
-                    Detalles detalle= null;
-                    detalle.setFk_idCatalogos(Integer.parseInt(request.getParameter("usuario")));
-                    d = dBL.findByOther(detalle);
-                    
-                    //se pasa la informacion del objeto a formato JSON
+                case "consultarDetallesSegunOrden":    //Se le envía el id de la orden para ver cuantas ordenes tiene
+                    Detalles buscado= null;
+                    buscado.setFk_idOrdenes(Integer.parseInt(request.getParameter("idOrden")));
+                    d = dBL.findByOther(buscado);
                     json = new Gson().toJson(d);
                     out.print(json);
                     break;
-               
+                
                 case "agregarDetalle": case "modificarDetalle":
 
                     //Se llena el objeto con los datos enviados por AJAX por el metodo post

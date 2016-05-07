@@ -71,7 +71,7 @@ public class UsuariosServlet extends HttpServlet {
                     json = new Gson().toJson(u);
                     out.print(json);
                     break;
-               
+                                   
                 case "agregarUsuario": case "modificarUsuario":
 
                     //Se llena el objeto con los datos enviados por AJAX por el metodo post
@@ -95,7 +95,7 @@ public class UsuariosServlet extends HttpServlet {
                     
 
                     boolean validacion= false;
-                    if(accion.equals("agregarPersona")){ //es insertar usuarios
+                    if(accion.equals("agregarUsuario")){ //es insertar usuarios
                         List<Usuarios> lista = uBL.findAll(Usuarios.class.getName());
                         for(Usuarios usuarios : lista){
                             if(u.getUsuario() == usuarios.getUsuario()){

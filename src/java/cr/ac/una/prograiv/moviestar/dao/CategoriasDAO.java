@@ -88,7 +88,7 @@ public class CategoriasDAO extends HibernateUtil implements IBaseDAO<Categorias,
     }
 
     @Override
-    public List<Categorias> findAllByOther(Integer o) {
+    public List<Categorias> findAllByOther(String o) {
          List<Categorias> lista= null;
        try {
             iniciaOperacion();

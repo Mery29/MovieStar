@@ -87,7 +87,7 @@ public class DetallesDAO extends HibernateUtil implements IBaseDAO<Detalles, Int
     }
 
     @Override
-    public List<Detalles> findAllByOther(Integer o) {
+    public List<Detalles> findAllByOther(String o) {
         List<Detalles> lista= null;
        try {
             iniciaOperacion();

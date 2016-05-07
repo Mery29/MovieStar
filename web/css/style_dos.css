@@ -1,22 +1,22 @@
 html,
-body { 
+/*body { 
     background: #ffffff;
     font-family: 'Lato', 'Belgrano', sans-serif;
     font-size: 16px;
     font-style: 
     -webkit-font-smoothing: subpixel-antialiased !important;
     -moz-font-smoothing: subpixel-antialiased !important;
-    -ms-font-smoothing: subpixel-antialiased !important;
+    -ms-font-smoothing: subpixel-antialiased !important;*/
     //-0-font-smoothing: subpixel-antialiased !important;
-    text-rendering: optimizeLegibility !important;
-    -ms-text-size-adjust: 100%;
+/*    text-rendering: optimizeLegibility !important;*/
+/*    -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -webkit-overflow-scrolling: touch;
     -moz-overflow-scrolling: touch;
     -ms-overflow-scrolling: touch;
     -o-overflow-scrolling: touch;
     overflow-scrolling: touch;
-}
+} */
 a {
     text-decoration: none;
     -webkit-transition: all .25s ease-in-out;

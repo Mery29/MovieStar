@@ -47,7 +47,7 @@ public class CatalogosServlet extends HttpServlet {
             //**********************************************************************
             String accion = request.getParameter("accion");
             switch (accion) {
-                case "consultarCatalogo":  //Esto puede ser buscar una pelicula o serie
+                case "consultarCatalogo":  
                     json = new Gson().toJson(cBL.findAll(Catalogos.class.getName()));
                     out.print(json);
                     break;
@@ -60,10 +60,13 @@ public class CatalogosServlet extends HttpServlet {
                     out.print("La pelicula fue eliminada correctamente");
                     break;
                     
-                case "consultarCatalogoPorNombre":  
+                case "buscarCatalogo":  
                     //se consulta la persona por ID
                     Catalogos consultado= null;
                     consultado.setNombre(request.getParameter("nombreCatalogo"));
+                    consultado.setDirector(request.getParameter("director"));
+                    consultado.setActor_princ(request.getParameter("actorPrincipal"));
+                    consultado.setFk_idCateg(Integer.parseInt(request.getParameter("idCategoria")));
                     c = cBL.findByOther(consultado);
                     
                     //se pasa la informacion del objeto a formato JSON
@@ -72,7 +75,6 @@ public class CatalogosServlet extends HttpServlet {
                     break;
                     
                 case "consultarCatalogoPorId":  //Sería buscar pelicula o Serie por código que viene siendo el id 
-                    //se consulta la persona por ID
                     Catalogos buscada= null;
                     buscada.setPk_idCata(Integer.parseInt(request.getParameter("idCatalogo")));
                     c = cBL.findByOther(buscada);

@@ -16,5 +16,6 @@ public interface IBaseBL <T, K> {
     public abstract T merge (T o);
     public abstract void delete (T o);
     public abstract T findByOther (T o);
-    public abstract  List<T> findAll(String className);
+    public abstract List<T> findAllByOther(String o);
+    public abstract  List<T> findAll(String o);
 }

@@ -75,7 +75,7 @@ public class CategoriasServlet extends HttpServlet {
                    
                     boolean validacion= false;
                     if(accion.equals("agregarCategoria")){ //es insertar categorias
-                        List<Categorias> lista = cBL.findAll(Categorias.class.getName());
+                        List<Categorias> lista = cBL.findAllByOther(Categorias.class.getName());
                         for(Categorias categorias : lista){
                             if(c.getNombre()== categorias.getNombre()){  //Compara si en lista ya se ha ingresado una categoría con el mismo nombre
                                 out.print("E~Usted ha ingresado una categoría que ya existe");
