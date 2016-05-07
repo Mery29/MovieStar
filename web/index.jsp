@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="modal-footer">
                                       ¿Eres nuevo en MovieStar?
-                                      <a href="registro.html" class="btn btn-primary">Regístrate</a>
+                                      <a href="registro.jsp" class="btn btn-primary">Regístrate</a>
                                 </div>
                             </div>
                         </div>

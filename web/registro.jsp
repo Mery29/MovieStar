@@ -1,3 +1,10 @@
+<%-- 
+    Document   : registro
+    Created on : 07-may-2016, 10:19:57
+    Author     : Mery Zúñiga
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -198,3 +205,4 @@
         </footer>
     </body>
 </html>
+
