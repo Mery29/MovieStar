@@ -102,6 +102,8 @@
                     <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
             </div>
+            
+                
         </nav>
             <div id="ajSlider">
                 <img src="media/slider/battleship.jpg" alt="bs"/>
