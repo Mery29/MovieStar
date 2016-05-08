@@ -12,9 +12,18 @@ $(document).ready(function() {
  $(document).ready(function() {
     $('.carousel').carousel({
       interval: 6000
-    })
+    });
+    
   });
+$(document).ready(function() {
+    var some = document.createElement('div');
+    some.innerHTML = "Hola Mundo";
+    document.getElementById('ajSliderS').appendChild(some);
+});
 
+function dibujarSlider(){
+    
+}
   
  function show(id){
     document.getElementById(id).style.display = "block";

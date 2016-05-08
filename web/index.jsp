@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="css/font-awesome-4.5.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/creative.css">
+        <script src="js/principal.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/ajSlider.js"></script>
@@ -114,6 +115,7 @@
                 <img src="media/slider/twd.jpg" alt="tw"/>
                 <a></a><a></a><a></a><a></a><a></a>
             </div>
+        <div id="some"></div>
             <div class="container">
             <div class="row">
                 <div class="col-sm-12">
