@@ -11,22 +11,23 @@
         <title>Registro</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-        <link rel="stylesheet" type="text/css" href="../css/font-awesome-4.5.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="../css/creative.css">
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/ajSlider.js"></script>
-        <script src="../js/myJs.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-4.5.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/creative.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ajSlider.js"></script>
+        <script src="js/myJs.js"></script> 
         <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
         <link rel="shortcut icon" href="media/icon.ico">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/custom.css">
-        <link rel="shortcut icon" href="../media/icon.ico">   
-        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="shortcut icon" href="media/icon.ico">   
+        <link rel="stylesheet" href="css/style.css"> 
+        
     </head>
   
    
@@ -111,50 +112,69 @@
                         <form class="form-horizontal" method="post">
                             <fieldset>
                                 <legend class="text-center header">Regístrate</legend>
-                                <div class="form-group">
+                                <div class="form-group" id="groupUser">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user-secret bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="user" name="username" type="text" placeholder="Nombre de usuario" class="form-control" required="required">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="groupPass">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-key bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="pass" name="psw" type="password" placeholder="Contraseña" class="form-control" required="required">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="groupId">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon fa-2x"></i></span>
+                                    <div class="col-md-8">
+                                        <input id="id" name="id" type="text" placeholder="Identificacion" class="form-control" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="groupName">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control" required="required">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="groupLastName">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="lname" name="lastname" type="text" placeholder="Apellidos" class="form-control" required="required">
                                     </div>
                                 </div>
-
-                                <div class="form-group">
+                                <div class="form-group" id="groupDireccion">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon fa-2x"></i></span>
+                                    <div class="col-md-8">
+                                        <input id="direccion" name="direccion" type="text" placeholder="Dirrección" class="form-control" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="groupEmail">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="email2" name="email" type="text" placeholder="Correo Electrónico" class="form-control" required="required">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="groupFecha">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon fa-2x"></i></span>
                                     <div class="col-md-8" data-tip="Fecha de nacimiento">
                                         <input id="cumple" name="bday" type="text" placeholder="Fecha de nacimiento" class="form-control" required="required">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <label for="dpFechaNacimiento">Fecha Nacimiento:</label>
+                                <div id="dpFechaNacimiento" class="input-group date form_date" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
+                                    <input class="form-control" type="text" value="" readonly placeholder="dd/mm/aaaa" id="dpFechaNacimientoText">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div> -->
+                                
+                                <div class="form-group" id="groupPhone">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="groupCelphone">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon fa-2x"></i></span>
                                     <div class="col-md-8">
                                         <input id="celphone" name="phone" type="text" placeholder="Celular" class="form-control">
@@ -163,7 +183,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg">Registrarme</button>
+                                        <button type="submit" id="agregarUsuario" class="btn btn-primary btn-lg">Registrarme</button>
                                     </div>
                                 </div>
                             </fieldset>
