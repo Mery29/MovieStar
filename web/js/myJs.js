@@ -43,10 +43,11 @@ $('.SeeMore2').click(function(){
             url: 'UsuariosServlet',
             data: {
                 accion: $("#usuariosAction").val(),
-                cedula: $("#user").val(),
-                nombre: $("#nombre").val(),
-                apellido1: $("#apellido1").val(),
-                apellido2: $("#apellido2").val(),
+                usuario: $("#user").val(),
+                contraseña: $("#pass").val(),
+                idUsuario: $("#id").val(),
+                nombre: $("#fname").val(),
+                apellidos: $("#lname").val(),
                 fechaNacimiento: $("#dpFechaNacimiento").data('date'),
                 sexo: $("#sexo").val(),
                 observaciones: $("#observaciones").val()
