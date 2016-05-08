@@ -20,7 +20,6 @@ import cr.ac.una.prograiv.moviestar.domain.Media;
  *
  * @author Byron
  */
-@WebServlet(name = "mediaServlet", urlPatterns = {"/mediaServlet"})
 public class MediaServlet extends HttpServlet {
 
     /**
@@ -56,7 +55,7 @@ public class MediaServlet extends HttpServlet {
             String accion = request.getParameter("accion");
             switch (accion) {
                 case "slider":
-                    json = new Gson().toJson(mBL.findAll(Media.class.getName()));
+                    json = new Gson().toJson(mBL.findAllByOther("slider"));
                     out.print(json);
                     break; 
                 default:

@@ -7,7 +7,12 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/moviestar?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="cr/ac/una/prograiv/moviestar/domain/hibernate.hbm.xml"/>
-    <mapping/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Catalogos.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Categorias.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Categorias.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Detalles.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Media.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Ordenes.hbm.xml"/>
+    <mapping resource="cr/ac/una/prograiv/moviestar/domain/Usuarios.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

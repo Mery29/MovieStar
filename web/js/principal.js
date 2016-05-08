@@ -5,9 +5,8 @@
  */
 
 
-$(document).ready(function() {
-    var txt = document.createTextNode("Texto agregado");
-    document.getElementById('some').appendChild(txt);
+$(document).ready(function () {
+    dibujarSlider();
 });
 
 function mostrarSlider() {
@@ -31,9 +30,9 @@ function mostrarSlider() {
 }
 
 function dibujarSlider(){
-    var some = document.createElement('div');
-    some.innerHTML = "Hola Mundo";
-    document.getElementById('some').appendChild(some);
+    $("#some").html("");
+    var dir = "media/slider/battleship.jpg";
+    $("#some").append("<img src="+ dir +" alt="+"bs"+"/>");
 }
 
 $(function () {

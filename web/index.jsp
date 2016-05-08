@@ -107,13 +107,7 @@
                 
         </nav>
             <div id="ajSlider">
-                <img src="media/slider/battleship.jpg" alt="bs"/>
-                <img src="media/slider/bb.jpg" alt="bb" />
-                <img src="media/slider/inception.jpg" alt="in"/>
-                <img src="media/slider/lost.jpg" alt="lo"/>
-                <img src="media/slider/thor.jpg" alt="th"/>
-                <img src="media/slider/twd.jpg" alt="tw"/>
-                <a></a><a></a><a></a><a></a><a></a>
+                
             </div>
         <div id="some"></div>
             <div class="container">
